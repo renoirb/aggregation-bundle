@@ -1,0 +1,14 @@
+parameters:
+    guzzle.service_builder.class: Guzzle\Service\Builder\ServiceBuilder
+    #guzzle.service_builder.configuration_file:
+
+guzzle_guzzle:
+    service_builder: ~
+
+services:
+    #guzzle.service_builder:
+    #    class: %guzzle.service_builder.class%
+    #    factory_method: factory
+    #    factory_class: %guzzle.service_builder.class%
+    #    arguments:
+    #        - { guzzle.service_builder.configuration_file: %guzzle.service_builder.configuration_file% }

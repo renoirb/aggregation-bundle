@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<client>
+    <commands>
+        <command name="twitter_command" class="Renoir\AggregationBundle\Command\TwitterCommand">
+            <doc>Base Aggregator command class</doc>
+        </command>
+        <command name="pingtestprout" method="GET" uri="/help/test.json" extends="twitter_command">
+            <doc>Test if service is online</doc>
+        </command>
+        <command name="image" method="GET" uri="/1/users/profile_image.json?screen_name={{screen_name}}&amp;size={{size}}" extends="twitter_command">
+            <doc>Get User image (https://dev.twitter.com/docs/api/1/get/users/profile_image/%3Ascreen_name)</doc>
+            <param name="screen_name" type="string" required="true" doc="User screen name e.g. twitterapi" />
+            <param name="size" type="string" required="true" doc="Size: bigger,normal,mini,original" />
+        </command>
+        <command name="create_user" method="POST" uri="/users" extends="twitter_command">
+            <param name="data" type="type:array" filters="json_encode" location="body" />
+        </command>
+        <command name="statuses" method="GET" uri="/1/statuses/user_timeline.json?screen_name={{screen_name}}&amp;include_rts=1&amp;include_entities=1" extend="twitter_command">
+            <param name="screen_name" type="string" required="true" doc="User screen name e.g. renoirb" />
+        </command>
+    </commands>
+</client>
